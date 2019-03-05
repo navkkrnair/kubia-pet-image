@@ -6,6 +6,5 @@ RUN apk add --update \
     curl \
     && rm -rf /var/cache/apk/*
 EXPOSE 8080
-USER nobody
 ENTRYPOINT ["java"]
 CMD ["-jar","-Xmx128m","-Xms128m","-Djava.security.egd=file:/dev/./urandom", "/usr/nobody/kubia-pet-image-1.0.jar"]
