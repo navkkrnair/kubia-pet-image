@@ -2,6 +2,9 @@ FROM openjdk:8-jdk-alpine
 ENV APPROOT="/usr/nobody"
 WORKDIR $APPROOT    
 ADD target/kubia-pet-image-1.0.jar $APPROOT
+RUN apk add --update \
+    curl \
+    && rm -rf /var/cache/apk/*
 EXPOSE 8080
 USER nobody
 ENTRYPOINT ["java"]
